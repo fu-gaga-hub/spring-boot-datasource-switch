@@ -1,5 +1,7 @@
 package com.gaga.springbootdatasourceswitch.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -37,7 +39,7 @@ public class DataSourceConfig {
     @ConfigurationProperties(prefix = "spring.datasource.ds0")
     public DataSource db0DataSource(){
         log.info("---加载ds0数据源----");
-        return DataSourceBuilder.create().build();
+        return DruidDataSourceBuilder.create().build();
     }
 
     //数据源1
@@ -45,7 +47,7 @@ public class DataSourceConfig {
     @ConfigurationProperties(prefix = "spring.datasource.ds1")
     public DataSource db1DataSource(){
         log.info("---加载ds1数据源----");
-        return DataSourceBuilder.create().build();
+        return DruidDataSourceBuilder.create().build();
     }
 
     //配置实际数据源与 选择数据源的映射关系
